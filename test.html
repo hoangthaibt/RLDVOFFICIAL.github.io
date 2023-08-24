@@ -2,6 +2,7 @@
 <html lang = "en">
 <head>
        <title>An Vat</title>
+       <link rel="icon" type="image/x-icon" href="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/309544455_390601006612433_735539675693709724_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RbWj_FQ-sjAAX9RBaot&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfCK9b9RUjDlFFFGTZrw8axr5l-Vbq3YFMtJH9VOo5EZWQ&oe=64ECC9CD">
 </head>
 <body>
        <h1 class = "tt" id = "te">Rèn luyện đoàn viên đợt 2-Trang số: </h1>
@@ -88,7 +89,7 @@
                                    <div class = "food">
                                           <div class = "daca">
                                                  <img src = ${path}>
-                                                 <h3> Ảnh số ${Number(i)-1} </h3>
+                                                 <h4> Ảnh số ${Number(i)-1} </h4>
                                                  <br>
                                           </div>
                                    </div>
@@ -119,25 +120,25 @@
                      function next(){
                             if (totalpicture == "100" || totalpicture == 100) {
                                    localStorage.setItem("totalpicture", 20);
-                                   localStorage.setItem("page", Number(page) + 1);
                             }else{
                                    localStorage.setItem("totalpicture", Number(totalpicture)+20);
                             }
                             localStorage.setItem("trang", Number(localStorage.getItem("trang"))+1);
                             localStorage.setItem("file", Number(localStorage.getItem("file"))+20);
+                            if ((Number(localStorage.getItem("trang"))-1) % 5 == 0) localStorage.setItem("page", Number(page)+1);
                             window.location.href = "test.html";
                      };
                      function back(){
-                            if (Number(page) > 0) localStorage.setItem("page", Number(page) -1);
-                            else localStorage.setItem("page", 0);
+                            if ((Number(localStorage.getItem("trang"))-1) % 5 == 0) localStorage.setItem("page", Number(page)-1);
+                            if (localStorage.getItem("page") < 0) localStorage.setItem("page", 0);
                             if (Number(totalpicture) >= 40) {
                                    localStorage.setItem("totalpicture", Number(totalpicture) - 20);
-                                   localStorage.setItem("file", Number(file) - 20);
                             }
                             else {
                                    localStorage.setItem("totalpicture", 20);
-                                   localStorage.setItem("file", 1);
                             }
+                            if (Number(file) <= 20) localStorage.setItem("file", 1);
+                            else localStorage.setItem("file", Number(file)-20);
                             if (Number(localStorage.getItem("trang")) > 1) localStorage.setItem("trang", Number(localStorage.getItem("trang"))-1);
                             window.location.href = "test.html";
                      };
