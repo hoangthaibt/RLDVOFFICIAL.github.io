@@ -83,11 +83,12 @@
                             cnt = Number(cnt)-1;
                             console.log(i);
                             let path = "https://raw.githubusercontent.com/hoangthaibt/adminrldv.github.io/main/IMG"+String(page)+"/rldv("+ String(i)+").jpg";
-                            i = i+1;
+                            i = Number(i)+1;
                             disp.innerHTML += `
                                    <div class = "food">
                                           <div class = "daca">
                                                  <img src = ${path}>
+                                                 <h4> Ảnh số ${Number(i)-1} </h4>
                                                  <br>
                                           </div>
                                    </div>
