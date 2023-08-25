@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-       <title>An Vat</title>
+       <title>Rèn luyện đoàn viên</title>
        <link rel="icon" type="image/x-icon" href="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/309544455_390601006612433_735539675693709724_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RbWj_FQ-sjAAX9RBaot&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfCK9b9RUjDlFFFGTZrw8axr5l-Vbq3YFMtJH9VOo5EZWQ&oe=64ECC9CD">
 </head>
 <body>
@@ -89,8 +89,12 @@
                                    <div class = "food">
                                           <div class = "daca">
                                                  <img src = ${path}>
-                                                 <h4> Ảnh số ${Number(i)-1} </h4>
+                                                 <h4> Ảnh số ${Number(i)-1}
                                                  <br>
+                                                 Link ảnh
+                                                 <a href = "${path}">IMAGE</a>
+                                                 <button id="downloadImage" onclick = "myf('${path}')" value = "${path}"> Tải ảnh về </button>
+                                                 </h4>
                                           </div>
                                    </div>
                                    <style>
@@ -117,6 +121,9 @@
                                    </style>
                             `;
                      }
+                     function myf(url){
+                        console.log(url);
+                     }
                      function next(){
                             if (totalpicture == "100" || totalpicture == 100) {
                                    localStorage.setItem("totalpicture", 20);
@@ -142,11 +149,14 @@
                             if (Number(localStorage.getItem("trang")) > 1) localStorage.setItem("trang", Number(localStorage.getItem("trang"))-1);
                             window.location.href = "test.html";
                      };
-                     
+                     function downloadimg(para){
+                        alert("failed");
+                    }
               }else{
                      alert("Vui lòng quay lại homepage ạ");
                      window.location.href = "index.html";
               }
+              
        </script>
 </body>
 </html>
