@@ -12,6 +12,7 @@
       <input type="text" id="fname" name="fname"><br>
       <label for="lname" class = "sdt">Lớp:</label>
       <input type="text" id="sdt" name="sdt"><br><br>
+      <div id = "displaytext"></div>
       <input type="submit" class = "button-3" onclick = "check()" value = "Xem ảnh thoai">
       <br>
       <br>
@@ -102,6 +103,8 @@
             else dathang();
           }
 function dathang(){
+  let disptext = document.getElementById("displaytext");
+  disptext.innerHTML += `Vui lòng chờ bọn mình khoảng 5-7s nhe mí bạn đừng spam ạ :((`;
   let time = new Date();
   localStorage.clear();
     localStorage.setItem("ch", "accepted");
