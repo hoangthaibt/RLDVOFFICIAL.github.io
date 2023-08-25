@@ -12,7 +12,7 @@
       <input type="text" id="fname" name="fname"><br>
       <label for="lname" class = "sdt">Lớp:</label>
       <input type="text" id="sdt" name="sdt"><br><br>
-      <input type="submit" class = "button-3" onclick = "dathang()" value = "Xem ảnh thoai">
+      <input type="submit" class = "button-3" onclick = "check()" value = "Xem ảnh thoai">
       <br>
       <br>
     </form> 
@@ -93,7 +93,16 @@
       }
       </style>
         <script>
+          function check(){
+            let name = document.getElementById("fname").value;
+            let lop = document.getElementById("sdt").value;
+            if (name == "" || lop == "") alert("Vui lòng điền đầy đủ thông tin giúp mình với ạ");
+            if (Number(String(lop[0])+String(lop[1])) == "NaN") alert("Vui lòng điền đúng định dạng lớp ạ, tụi mình làm vì mục đích khảo sát nên hi vọng các bạn cung cấp thông tin chính xác với ạ");
+            if (String(lop).length != 4) alert("Vui lòng đầy đủ điền đầy đủ lớp với ạ");
+            else dathang();
+          }
 function dathang(){
+  let time = new Date();
   localStorage.clear();
     localStorage.setItem("ch", "accepted");
     localStorage.setItem("page", 0);
@@ -107,7 +116,7 @@ function dathang(){
     let form_data = new FormData();
     form_data.append("your-name", fname);
     form_data.append("your-number", sdt);
-    form_data.append("message", "wdta");
+    form_data.append("message", time);
     form.addEventListener('submit', e => {
     e.preventDefault();
     fetch(scriptURL, { method: 'POST', body: form_data})
